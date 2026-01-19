@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام إدارة الموارد البشرية</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: #f4f4f4;
+            direction: rtl;
+            text-align: right;
+        }
+        .card {
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        nav h3 {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-primary p-3">
+        <h3>نظام إدارة الموارد البشرية (HR)</h3>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row g-4">
+
+            <!-- Employees -->
+            <div class="col-md-3">
+                <a href="employees.html" style="text-decoration:none;">
+                    <div class="card p-3 text-center">
+                        <h4>الموظفين</h4>
+                        <p>عرض وإضافة وتعديل بيانات الموظفين</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Attendance -->
+            <div class="col-md-3">
+                <a href="attendance.html" style="text-decoration:none;">
+                    <div class="card p-3 text-center">
+                        <h4>الحضور والانصراف</h4>
+                        <p>تسجيل حركة الحضور اليومية</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Leaves -->
+            <div class="col-md-3">
+                <a href="leaves.html" style="text-decoration:none;">
+                    <div class="card p-3 text-center">
+                        <h4>الإجازات</h4>
+                        <p>إدارة طلبات الإجازات</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Payroll -->
+            <div class="col-md-3">
+                <a href="payroll.html" style="text-decoration:none;">
+                    <div class="card p-3 text-center">
+                        <h4>الرواتب</h4>
+                        <p>عرض الرواتب والخصومات</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Management</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f5f5f5;
+        }
+        .container-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container container-box">
+    <h2>إدارة الرواتب</h2>
+
+    <!-- Form -->
+    <form id="salaryForm">
+        <div class="mb-3">
+            <label class="form-label">اسم الموظف</label>
+            <input type="text" id="empName" class="form-control" placeholder="مثال: منة إبراهيم" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">الراتب الأساسي</label>
+            <input type="number" id="basicSalary" class="form-control" placeholder="اكتبي الراتب" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">البدلات</label>
+            <input type="number" id="allowances" class="form-control" placeholder="لو مفيش اكتبي 0" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">الخصومات</label>
+            <input type="number" id="deductions" class="form-control" placeholder="لو مفيش اكتبي 0" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">إضافة المرتب</button>
+    </form>
+
+    <hr>
+
+    <!-- Table -->
+    <h4 class="mt-4">جدول الرواتب</h4>
+
+    <table class="table table-bordered mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>الموظف</th>
+                <th>الأساسي</th>
+                <th>البدلات</th>
+                <th>الخصومات</th>
+                <th>الراتب النهائي</th>
+            </tr>
+        </thead>
+        <tbody id="salaryTable">
+        </tbody>
+    </table>
+</div>
+
+<!-- JS -->
+<script>
+    const salaryForm = document.getElementById("salaryForm");
+    const salaryTable = document.getElementById("salaryTable");
+
+    salaryForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let name = document.getElementById("empName").value;
+        let basic = Number(document.getElementById("basicSalary").value);
+        let allow = Number(document.getElementById("allowances").value);
+        let deduct = Number(document.getElementById("deductions").value);
+
+        let total = basic + allow - deduct;
+
+        let row = `
+            <tr>
+                <td>${name}</td>
+                <td>${basic}</td>
+                <td>${allow}</td>
+                <td>${deduct}</td>
+                <td>${total}</td>
+            </tr>
+        `;
+
+        salaryTable.innerHTML += row;
+
+        salaryForm.reset();
+    });
+</script>
+
+</body>
+</html>
