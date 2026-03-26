@@ -1,88 +1,206 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام إدارة الموارد البشرية</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة التحكم - HR System</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
-    <style>
-        body {
-            background: #f4f4f4;
-            direction: rtl;
-            text-align: right;
-        }
-        .card {
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .card:hover {
-            transform: scale(1.05);
-        }
-        nav h3 {
-            color: white;
-        }
-    </style>
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #eef2f3, #dfe9f3);
+}
+
+/* 🔵 Navbar معدل ليناسب ألوان اللوجو */
+.custom-navbar {
+    background: linear-gradient(45deg, #0a4a83, #1d78cb); /* درجات الأزرق من اللوجو */
+    border-radius: 0 0 15px 15px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* لوجو + اسم */
+.brand-box {
+    display: flex;
+    align-items: center;
+}
+
+.brand-box img {
+    width: 60px; /* تكبير اللوجو قليلاً ليظهر بوضوح */
+    height: auto;
+    margin-left: 12px;
+    border-radius: 5px;
+    background: white; /* خلفية بيضاء بسيطة ليبرز اللوجو */
+    padding: 2px;
+}
+
+.navbar-brand {
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+/* الروابط */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ffd700;
+    transform: scale(1.05);
+}
+
+/* 🟡 Cards */
+.card {
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 15px;
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}
+
+/* ✨ Animation */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+/* 🖨️ زر الطباعة */
+.print-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-weight: bold;
+}
+
+/* إخفاء أثناء الطباعة */
+@media print {
+    .custom-navbar, .print-btn {
+        display: none;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-dark bg-primary p-3">
-        <h3>نظام إدارة الموارد البشرية (HR)</h3>
-    </nav>
+<div class="custom-navbar d-flex justify-content-between align-items-center">
 
-    <!-- Main Content -->
-    <div class="container mt-4">
-        <div class="row g-4">
-
-            <!-- Employees -->
-            <div class="col-md-3">
-                <a href="employees.html" style="text-decoration:none;">
-                    <div class="card p-3 text-center">
-                        <h4>الموظفين</h4>
-                        <p>عرض وإضافة وتعديل بيانات الموظفين</p>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Attendance -->
-            <div class="col-md-3">
-                <a href="attendance.html" style="text-decoration:none;">
-                    <div class="card p-3 text-center">
-                        <h4>الحضور والانصراف</h4>
-                        <p>تسجيل حركة الحضور اليومية</p>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Leaves -->
-            <div class="col-md-3">
-                <a href="leaves.html" style="text-decoration:none;">
-                    <div class="card p-3 text-center">
-                        <h4>الإجازات</h4>
-                        <p>إدارة طلبات الإجازات</p>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Payroll -->
-            <div class="col-md-3">
-                <a href="payroll.html" style="text-decoration:none;">
-                    <div class="card p-3 text-center">
-                        <h4>الرواتب</h4>
-                        <p>عرض الرواتب والخصومات</p>
-                    </div>
-                </a>
-            </div>
-
-        </div>
+    <div class="brand-box">
+        <img src="IMG-20251214-WA0206.jpg" alt="Logo">
+        <div class="navbar-brand">نظام HR</div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="nav-links d-flex">
+        <a href="index.html">الرئيسية</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">من نحن</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">تواصل معنا</a>
+    </div>
+
+</div>
+
+<div class="modal fade" id="aboutModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">من نحن</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>نظام إدارة الموارد البشرية متكامل يهدف لتسهيل إدارة شؤون الموظفين، تتبع الحضور، تنظيم الإجازات وحساب الرواتب بدقة.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="contactModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">تواصل معنا</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>📧 <a href="mailto:hrsystem@example.com">hrsystem@example.com</a></p>
+                <p>📞 0123456789</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 fade-in">
+
+    <h2 class="text-center mb-5 text-dark">لوحة التحكم الإدارية</h2>
+
+    <div class="row g-4">
+
+        <div class="col-md-3">
+            <a href="employees.html" style="text-decoration:none; color:inherit;">
+                <div class="card p-4 text-center shadow-sm">
+                    <h1 class="mb-3">👨‍💼</h1>
+                    <h4>الموظفين</h4>
+                    <p class="text-muted">إدارة بيانات الفريق</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-3">
+            <a href="attendance.html" style="text-decoration:none; color:inherit;">
+                <div class="card p-4 text-center shadow-sm">
+                    <h1 class="mb-3">📅</h1>
+                    <h4>الحضور</h4>
+                    <p class="text-muted">السجل اليومي</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-3">
+            <a href="leaves.html" style="text-decoration:none; color:inherit;">
+                <div class="card p-4 text-center shadow-sm">
+                    <h1 class="mb-3">🏖️</h1>
+                    <h4>الإجازات</h4>
+                    <p class="text-muted">تتبع الطلبات</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-3">
+            <a href="salary.html" style="text-decoration:none; color:inherit;">
+                <div class="card p-4 text-center shadow-sm">
+                    <h1 class="mb-3">💰</h1>
+                    <h4>الرواتب</h4>
+                    <p class="text-muted">الحسابات المالية</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨️ طباعة التقرير</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
